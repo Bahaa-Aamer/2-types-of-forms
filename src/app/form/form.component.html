@@ -1,0 +1,87 @@
+<div class="form">
+  <h2>Registration Form</h2>
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div ngModelGroup="personalDetails">
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        id="fname"
+        placeholder="first name.."
+        name="firstname"
+        required
+        ngModel
+        #fname="ngModel"
+      />
+      <div>
+        <small *ngIf="fname.invalid && fname.touched">
+          enter your first name.</small
+        >
+      </div>
+
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        id="lname"
+        placeholder="last name.."
+        name="lastname"
+        required
+        ngModel
+        #lname="ngModel"
+      />
+      <div>
+        <small *ngIf="lname.invalid && lname.touched">
+          enter your last name.</small
+        >
+
+        <label for="DOB" style="display: block">Date of birth</label>
+        <input
+          type="date"
+          id="DOB"
+          name="DOB"
+          ngModel
+          required="date"
+          #DOB="ngModel"
+        />
+      </div>
+    </div>
+    <label for="email">email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="email.."
+      required
+      email
+      ngModel
+      #email="ngModel"
+    />
+    <div>
+      <small *ngIf="email.invalid && email.touched"> enter your email.</small>
+    </div>
+
+    <label for="country">country </label>
+    <select name="country" id="country" ngModel required>
+      <option value="egypt">Egypt</option>
+      <option value="canada">Canada</option>
+      <option value="saudi arabia">Saudi Arabia</option>
+      <option value="kuwait">Kuwait</option>
+    </select>
+    <label for="gender" style="display: block; padding-bottom: 0">Gender</label>
+    <select name="gender" id="gender" ngModel required>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <button
+      *ngIf="myForm.valid; else unvalid"
+      type="submit"
+      (click)="onSubmit()"
+    >
+      submit
+    </button>
+    <ng-template #unvalid
+      ><div style="color: red; margin-top: 30px">Complete the form</div>
+    </ng-template>
+  </form>
+</div>
