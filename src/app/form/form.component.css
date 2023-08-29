@@ -87,3 +87,9 @@ small {
   margin: 0;
   padding: 0;
 }
+
+.form:hover h2 {
+  transition: 0.3s;
+  text-shadow: 0 0 5px #cacaca, 0 0 25px #cacaca, 0 0 50px #cacaca,
+    0 0 10px #cacaca;
+}

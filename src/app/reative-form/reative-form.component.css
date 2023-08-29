@@ -1,0 +1,140 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  padding-right: 40px;
+  box-shadow: 0 0 5px #b3b0b0, 0 0 25px #b3b0b0, 0 0 50px #b3b0b0,
+    0 0 10px #b3b0b0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.title {
+  font-size: 28px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: royalblue;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: royalblue;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.flex {
+  display: flex;
+  gap: 6px;
+}
+
+.flex label {
+  position: relative;
+}
+.flex input {
+  width: 50%;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: royalblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid royalblue;
+  padding: 2px 5px;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+form input.ng-invalid.ng-touched {
+  border: 2px solid red;
+  animation: shake 0.7s linear both;
+}
+
+@keyframes shake {
+  0% {
+    transform: scaleX(1);
+  }
+  10% {
+    transform: scaleX(1.5);
+  }
+  20% {
+    transform: scaleX(1);
+  }
+  30% {
+    transform: scaleX(0.5);
+  }
+  40% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.5);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.incorrect {
+  border: 2px solid red;
+}

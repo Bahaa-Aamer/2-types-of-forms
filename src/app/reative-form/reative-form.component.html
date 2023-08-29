@@ -1,0 +1,40 @@
+<div class="container">
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <p class="title">Register</p>
+
+    <label class="flex" style="gap: 31%">
+      <label>FirstName</label>
+      <label>LastName</label>
+    </label>
+
+    <label class="flex">
+      <input type="text" class="input" id="fname" formControlName="firstName" />
+      <input type="text" class="input" id="lname" formControlName="lastName" />
+    </label>
+
+    <label>Email</label>
+    <input type="email" class="input" id="email" formControlName="email" />
+
+    <label>Password</label>
+    <input
+      placeholder="at least 8 charachters"
+      type="password"
+      class="input"
+      id="password"
+      formControlName="password"
+      [(ngModel)]="password"
+    />
+
+    <label>Confirm Password</label>
+    <input
+      type="password"
+      class="input"
+      id="confirmPassword"
+      formControlName="passwordConfirm"
+      [(ngModel)]="passwordConf"
+      [ngClass]="{ incorrect: passwordConf !== password }"
+    />
+
+    <button type="submit" class="submit">Submit</button>
+  </form>
+</div>
