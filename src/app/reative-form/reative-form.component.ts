@@ -27,7 +27,10 @@ export class ReativeFormComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
       ]),
-      passwordConfirm: new FormControl(null, [Validators.required]),
+      passwordConfirm: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
   }
   submit() {
