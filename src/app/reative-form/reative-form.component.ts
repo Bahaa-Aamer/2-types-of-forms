@@ -33,11 +33,4 @@ export class ReativeFormComponent implements OnInit {
   submit() {
     console.log(this.form);
   }
-
-  matchPassword(control: FormControl) {
-    if (this.passwordConf === this.password) {
-      return { ValidityState: true };
-    }
-    return { ValidityState: false };
-  }
 }
