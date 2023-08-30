@@ -1,11 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
+  FormBuilder,
   ControlValueAccessor,
   Form,
   FormControl,
   FormGroup,
   NgControl,
   Validators,
+  ValidationErrors,
+  AbstractControl,
 } from '@angular/forms';
 
 @Component({
@@ -20,8 +23,8 @@ export class ReativeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, Validators.required),
+      firstName: new FormControl(null, [Validators.required, this.noSpace]),
+      lastName: new FormControl(null, [Validators.required, this.noSpace]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
         Validators.required,
@@ -29,11 +32,26 @@ export class ReativeFormComponent implements OnInit {
       ]),
       passwordConfirm: new FormControl(null, [
         Validators.required,
-        Validators.minLength(8),
+        this.matchPass,
       ]),
     });
   }
   submit() {
     console.log(this.form);
+    console.log(this.password + ' ' + this.passwordConf);
+  }
+
+  noSpace(control: FormControl) {
+    if (control.value != null && control.value.indexOf(' ') != -1) {
+      return { noSpace: true };
+    }
+    return null;
+  }
+
+  matchPass(control: FormControl) {
+    if (control.value !== control.get('password')) {
+      return { matchPass: true };
+    }
+    return { matchPass: false };
   }
 }

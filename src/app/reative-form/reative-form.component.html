@@ -9,9 +9,21 @@
 
     <label class="flex">
       <input type="text" class="input" id="fname" formControlName="firstName" />
+
       <input type="text" class="input" id="lname" formControlName="lastName" />
     </label>
-
+    <div style="color: red; font-size: 15px; margin-top: -8px; display: flex">
+      <small
+        style="width: 50%"
+        *ngIf="form.get('firstName' ).errors?.['noSpace']"
+        >Spaces are not allowed</small
+      >
+      <small
+        style="width: 50%; right: 0; position: absolute"
+        *ngIf="form.get('lastName' ).errors?.['noSpace']"
+        >Spaces are not allowed</small
+      >
+    </div>
     <label>Email</label>
     <input type="email" class="input" id="email" formControlName="email" />
 
@@ -24,6 +36,11 @@
       formControlName="password"
       [(ngModel)]="password"
     />
+    <div style="color: red; font-size: 15px; margin-top: -8px">
+      <small *ngIf="form.get('password').errors?.['required']"
+        >enter your password</small
+      >
+    </div>
 
     <label>Confirm Password</label>
     <input
@@ -32,7 +49,6 @@
       id="confirmPassword"
       formControlName="passwordConfirm"
       [(ngModel)]="passwordConf"
-      [ngClass]="{ incorrect: passwordConf !== password }"
     />
 
     <button type="submit" class="submit">Submit</button>
