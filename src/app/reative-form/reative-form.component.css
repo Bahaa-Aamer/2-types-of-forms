@@ -116,25 +116,21 @@ form input.ng-invalid.ng-touched {
     transform: scaleX(1);
   }
   10% {
-    transform: scaleX(1.5);
+    transform: scaleX(1.2);
   }
   20% {
     transform: scaleX(1);
   }
   30% {
-    transform: scaleX(0.5);
+    transform: scaleX(0.8);
   }
   40% {
     transform: scaleX(1);
   }
   50% {
-    transform: scaleX(1.5);
+    transform: scaleX(1.2);
   }
   100% {
     transform: scaleX(1);
   }
-}
-
-.incorrect {
-  border: 2px solid red;
 }
